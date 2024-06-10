@@ -5,6 +5,15 @@
     <title>Title</title>
 </head>
 <body>
-
+<form method="post">
+    {% csrf_token %}
+    <input type="text" placeholder="enter your username" name="username">
+    <input type="text" placeholder="enter your name" name="name">
+    <input type="text" placeholder="enter your last name" name="last-name">
+    <input type="email" placeholder="enter your email" name="email">
+    <input type="password" placeholder="enter your password" name="password1">
+    <input type="password" placeholder="enter your password again" name="password2">
+    <button type="submit">login</button>
+</form>
 </body>
 </html>
