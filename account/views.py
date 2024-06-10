@@ -34,3 +34,21 @@ class LogoutView(View):
 
 class RegisterView(View):
     template_name = 'account/sign_up.html'
+
+    def get(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return redirect(reverse('main:index_view'))
+        return render(request, self.template_name, {})
+    def post(self, request, *args, **kwargs):
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        password1 = request.POST.get('password1')
+        password2 = request.POST.get('password2')
+        name = request.POST.get('name')
+        last_name = request.POST.get('last-name')
+
+        if password1 != password2:
+            raise ValidationError('passwords are not same')
+        user = User.objects.create_user(first_name=name, email=email, password=password1, username=username, last_name=last_name)
+        login(request, user)
+        return redirect(reverse('main:index_view'))
