@@ -18,3 +18,4 @@ class ContactUserView(View):
         last_name = request.POST.get('user-lastname')
         Contact.objects.create(name=user_name, message=text, last_name=last_name)
         return redirect(reverse('main:index_view'))
+
