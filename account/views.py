@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.shortcuts import render, redirect
@@ -23,3 +23,11 @@ class LoginView(View):
             login(request, user)
             return redirect(reverse('main:index_view'))
         raise ValidationError('Invalid username or password or email')
+
+class LogoutView(View):
+    def get(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            logout(request)
+            return redirect(reverse('main:index_view'))
+        else:
+            return redirect(reverse('account:login_view'))
