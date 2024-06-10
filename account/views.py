@@ -31,3 +31,6 @@ class LogoutView(View):
             return redirect(reverse('main:index_view'))
         else:
             return redirect(reverse('account:login_view'))
+
+class RegisterView(View):
+    template_name = 'account/sign_up.html'
