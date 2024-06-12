@@ -8,5 +8,22 @@
 <h1>
     hi wellcome to social network site
 </h1>
+{% if request.user.is_authenticated %}
+    <a href="{% url 'account:logout_view' %}" style="text-decoration: none">logout</a>
+    <br>
+    <br>
+    <br>
+    {% else %}
+    <a href="{% url 'account:login_view' %}" style="text-decoration: none">login</a>
+    <br>
+    <br>
+    <br>
+    <a href="{% url 'account:register_view' %}" style="text-decoration: none">register</a>
+{% endif %}
+<br>
+<br>
+<br>
+<br>
+<a href="{% url 'main:contactus' %}" style="text-decoration: none">contact us</a>
 </body>
 </html>
