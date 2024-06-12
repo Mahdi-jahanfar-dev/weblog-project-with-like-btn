@@ -5,6 +5,16 @@
     <title>Title</title>
 </head>
 <body>
-<p>hi</p>
+<div style="width: 80%; height: 600px">
+    <img src='{{ post.image.url }}' style="width: 80%; height: 300px">
+    <h1 style="text-align: center">title : {{ post.title }}</h1>
+    <p>
+        description : {{ post.content }}
+    </p>
+    <p style="background-color: blue; color: white">
+        author : {{ post.author.username }}
+    </p>
+    <p style="color: red">posted at : {{ post.date_posted }}</p>
+</div>
 </body>
 </html>
