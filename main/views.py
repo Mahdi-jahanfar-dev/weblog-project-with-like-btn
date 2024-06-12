@@ -1,10 +1,14 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from django.views.generic import TemplateView, CreateView, View
+from django.views.generic import TemplateView, CreateView, View, ListView
 from .models import Contact
 from .forms import ContactForm
-class IndexView(TemplateView):
+from blog.models import Post
+class IndexView(ListView):
     template_name = 'main/index.html'
+    model = Post
+    context_object_name = 'post'
+    paginate_by = 2
 
 class ContactUserView(View):
     template_name = 'main/contactus.html'
