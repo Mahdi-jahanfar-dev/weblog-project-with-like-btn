@@ -1,0 +1,28 @@
+[33m4ec0dbe[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m some link added
+[33m91419d5[m blog model added
+[33ma5d6ec8[m blog app added to setting[C
+[33ma04ec12[m blog app created
+[33m06d4f61[m register part complated
+[33m4c62f12[m sign_in class created
+[33m07357cc[m sign_in form created
+[33m1f15dee[m logout part created
+[33m4139b3e[m login part completed
+[33mf535db0[m account urls added
+[33m23c515f[m login class added
+[33ma8dd49f[m login class deleted
+[33m7f4736c[m login class added in views
+[33m69c08f2[m account app added to setting
+[33mbec5770[m sign_up html page added
+[33m1c1e976[m sign_in html page created
+[33m2087975[m account template directory added
+[33m672f232[m account urls.py created
+[33m17c908c[m account app created
+[33m3114a90[m contactus part complated
+[33mf380c0a[m contact us forms.py added
+[33m1d542d2[m contactus template added
+[33mc6088f8[m contactus model added
+[33ma04fa09[m git ignore added
+[33mdb6aae2[m index template addeed
+[33m1ba5f1c[m main_app.urls created
+[33m39295ad[m main app created
+[33m3a07573[m project created
