@@ -8,16 +8,25 @@
 <h1 style="text-align: center">
     hi wellcome to social network site
 </h1>
-<div style="border: 1px solid black; background-color: gray; color: white" >
+<div style="border: 1px solid black; background-color: gray; color: white">
     <p style="text-align: center">username : {{ request.user.username }}</p>
 </div>
+<p>categories : </p>
+<br></br>
+{% for i in categories %}
+    <a href="{{ i.get_absolute_url }}">{{ i.name }}</a>
+    <br>
+{% endfor %}
+
 {% if request.user.is_authenticated %}
-    <a href="{% url 'account:logout_view' %}" style="text-decoration: none; background-color: blue; color: white">logout</a>
+    <a href="{% url 'account:logout_view' %}"
+       style="text-decoration: none; background-color: blue; color: white">logout</a>
     <br>
     <br>
     <br>
 {% else %}
-    <a href="{% url 'account:login_view' %}" style="text-decoration: none; background-color: blue; color: white">login</a>
+    <a href="{% url 'account:login_view' %}"
+       style="text-decoration: none; background-color: blue; color: white">login</a>
     <br>
     <br>
     <br>
@@ -35,9 +44,12 @@
         <a href="{{ i.get_absolute_url }}" style="text-align: center">{{ i.title }}</a>
         <p>{{ i.content|slice:":50" }}</p>
         <P style="color: red">Posted at : {{ i.date_posted }}</P>
+        <a href="{{ i.category.first.get_absolute_url }}">{{ i.category.first }}</a>
+        {% if i.category.count > 1 %}
+            <a href="{{ i.category.last.get_absolute_url }}">{{ i.category.last }}</a>
+        {% endif %}
     </div>
 {% endfor %}
-
 {% if page_obj.has_other_pages %}
     {% if page_obj.has_next %}
         <a href="?page={{ page_obj.next_page_number }}">next</a>
@@ -54,5 +66,6 @@
         <a href="?page={{ i }}">{{ i }}</a>
     {% endif %}
 {% endfor %}
+
 </body>
 </html>

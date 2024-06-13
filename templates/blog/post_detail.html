@@ -15,6 +15,10 @@
         author : {{ post.author.username }}
     </p>
     <p style="color: red">posted at : {{ post.date_posted }}</p>
+    <a href="{{ post.category.first.get_absolute_url }}">{{ post.category.first }}</a>
+    {% if post.category.count > 1 %}
+        <a href="{{ post.category.last.get_absolute_url }}">{{ post.category.last }}</a>
+    {% endif %}
 </div>
 </body>
 </html>
