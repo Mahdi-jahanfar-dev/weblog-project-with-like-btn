@@ -22,3 +22,11 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse('blog:blog_detail', kwargs={'slug': self.slug})
 
+
+class Category(models.Model):
+    name = models.CharField(max_length=50)
+    slug = models.SlugField(null=True, blank=True, unique=True)
+    post = models.ManyToManyField(Post, related_name='categories')
+
+    def __str__(self):
+        return self.name
