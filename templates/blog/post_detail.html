@@ -20,5 +20,25 @@
         <a href="{{ post.category.last.get_absolute_url }}">{{ post.category.last }}</a>
     {% endif %}
 </div>
+
+<div class="comments" style="width: 300px">
+    <h4 style="color: red">comments : </h4>
+    {% for comment in post.comments.all %}
+        {% if comment.parent == None %}
+            <div class="comment" style="width: 100%; height: 100px; border: 1px solid black">
+                <p style="text-align: center">{{ comment.author.username}}</p>
+                <p style="text-align: center">{{ comment.content }}</p>
+            </div>
+        {% endif %}
+        {% if comment.parent %}
+            <div class="reply" style="width: 80%; height: 100px; margin-left: 50px; border: 1px solid red">
+                <p style="font-size: 10px; color: red">reply</p>
+                <p style="text-align: center">{{ comment.author.username }}</p>
+                <p style="text-align: center">{{ comment.content }}</p>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
+
 </body>
 </html>
