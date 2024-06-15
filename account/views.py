@@ -22,7 +22,8 @@ class LoginView(View):
         if user is not None:
             login(request, user)
             return redirect(reverse('main:index_view'))
-        raise ValidationError('Invalid username or password or email')
+        else:
+            return render(request, self.template_name, {'error': 'Invalid username or password'})
 
 class LogoutView(View):
     def get(self, request, *args, **kwargs):

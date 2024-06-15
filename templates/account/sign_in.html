@@ -5,7 +5,9 @@
     <title>Title</title>
 </head>
 <body>
-
+{% if error %}
+    {{ error }}
+{% endif %}
 <form method="post">
     {% csrf_token %}
     <input type="text" placeholder="enter your username" name="username">
@@ -13,6 +15,7 @@
     <input type="password" placeholder="enter your password" name="password">
     <button type="submit">login</button>
 </form>
+<a href="{% url 'account:register_view' %}">register</a>
 <a href="{% url 'main:index_view' %}">Home</a>
 </body>
 </html>
