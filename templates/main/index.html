@@ -42,8 +42,9 @@
 
 {% for i in post %}
     <div style="width: 500px; height: 500px; border: 1px solid black">
-        <img src="{{ i.image.url }}" style="width: 500px; height: 300px">
+        <a href="{{ i.get_absolute_url }}"><img src="{{ i.image.url }}" style="width: 500px; height: 300px"></a>
         <a href="{{ i.get_absolute_url }}" style="text-align: center">{{ i.title }}</a>
+        <p>author : {{ i.author }}</p>
         <p>{{ i.content|slice:":50" }}</p>
         <P style="color: red">Posted at : {{ i.date_posted }}</P>
         <a href="{{ i.category.first.get_absolute_url }}">{{ i.category.first }}</a>
