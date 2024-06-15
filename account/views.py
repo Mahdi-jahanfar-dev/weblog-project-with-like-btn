@@ -49,7 +49,7 @@ class RegisterView(View):
         last_name = request.POST.get('last-name')
 
         if password1 != password2:
-            raise ValidationError('passwords are not same')
+            return render(request, self.template_name, context={'error': 'passwords are not same'})
         user = User.objects.create_user(first_name=name, email=email, password=password1, username=username, last_name=last_name)
         login(request, user)
         return redirect(reverse('main:index_view'))
