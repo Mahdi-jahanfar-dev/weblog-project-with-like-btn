@@ -8,9 +8,11 @@
 <h1 style="text-align: center">
     hi wellcome to social network site
 </h1>
-<div style="border: 1px solid black; background-color: gray; color: white">
-    <p style="text-align: center">username : {{ request.user.username }}</p>
-</div>
+{% if request.user.is_authenticated %}
+    <div style="border: 1px solid black; background-color: gray; color: white">
+        <p style="text-align: center">username : {{ request.user.username }}</p>
+    </div>
+{% endif %}
 <p>categories : </p>
 <br></br>
 {% for i in categories %}
@@ -48,6 +50,7 @@
         {% if i.category.count > 1 %}
             <a href="{{ i.category.last.get_absolute_url }}">{{ i.category.last }}</a>
         {% endif %}
+        <p>likes : {{ i.likes.count }}</p>
     </div>
 {% endfor %}
 {% if page_obj.has_other_pages %}

@@ -52,3 +52,10 @@ class Comment(models.Model):
     def __str__(self):
         return self.content[:50]
 
+
+class Like(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='likes')
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='likes')
+
+    def __str__(self):
+        return self.post.title
